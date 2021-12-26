@@ -5,14 +5,19 @@ Created on Tue Dec 21 10:07:18 2021
 @author: alam
 """
 
+# Read input from file
 input = open('input1.txt', 'r').read().splitlines()
 
+# Instantiate vars for pt 1
 forward1 = 0
 depth1 = 0
+
+# Instantiate vars for pt 2
 forward2 = 0
 depth2 = 0
 aim2 = 0
 
+# Calculate conventional travel
 for line in input:
     distance = int(line[-1])
     if line[0] == 'f':
@@ -22,6 +27,7 @@ for line in input:
     elif line[0] == 'u':
         depth1 -= distance
         
+# Calculate travel using aim rules
 for line in input:
     distance = int(line[-1])
     if line[0] == 'f':
