@@ -5,6 +5,10 @@ Created on Tue Dec 21 09:29:23 2021
 @author: alam
 """
 
+# Timer
+import time
+start = time.time()
+
 # Read input from file
 input = open('input1.txt', 'r').read().splitlines()
 
@@ -24,3 +28,7 @@ for i in range(len(input) - 3):
         
 print(counter1)
 print(counter2)
+
+# Stop timer
+end = time.time()
+print('Time elapsed:', round((end-start)*1000, 3), 'ms')   

@@ -5,6 +5,10 @@ Created on Sun Dec 26 00:39:30 2021
 @author: alexa
 """
 
+# Timer
+import time
+start = time.time()
+
 # Read input file
 input = open('input1.txt', 'r').read().splitlines()
 
@@ -68,3 +72,7 @@ for draw in draws:
 	
 print(scores[0])
 print(scores[-1])
+
+# Stop timer
+end = time.time()
+print('Time elapsed:', round((end-start)*1000, 3), 'ms')

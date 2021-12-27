@@ -5,6 +5,10 @@ Created on Tue Dec 21 22:07:18 2021
 @author: alam
 """
 
+# Timer
+import time
+start = time.time()
+
 # Read input file
 input = open('input1.txt', 'r').read().splitlines()
 
@@ -83,4 +87,7 @@ for i in range(len(input[0])):
 # Convert binary to int to solve
 print(int(gamma, 2) * int(epsilon, 2))
 print(int(o2[0], 2) * int(scrubber[0], 2))
-        
+
+# Stop timer
+end = time.time()
+print('Time elapsed:', round((end-start)*1000, 3), 'ms')   
