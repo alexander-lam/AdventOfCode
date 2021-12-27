@@ -56,15 +56,15 @@ for draw in draws:
 					if colWon or rowWon:
 						won = True
 						winningBoards.append(board)
-						sum = 0
+						total = 0
 						
 						# Compute sum of unmarked board spaces
 						for row in board:
 							for element in row:
 								if element != - 1:
-									sum += element
+									total += element
 					
-						scores.append(sum*draw)
+						scores.append(total*draw)
 						
 	# Remove winning boards from future consideration			
 	for board in winningBoards:
