@@ -24,12 +24,18 @@ for element in input:
 	vals = element.split(' ')
 	pattern = []
 	output = []
+    
+    # Alphabetize patterns and store for each display
 	for i in range(10):
 		pattern.append(''.join(sorted(vals[i])))
+        
+    # Alphabetize display numbers and count ones that are unique
 	for i in range(11, 15):
 		output.append(''.join(sorted(vals[i])))
 		if len(vals[i]) in {2, 3, 4, 7}:
 			unique += 1
+    
+    # Add to master lists
 	patterns.append(sorted(pattern, key=len))
 	outputs.append(output)
 
@@ -45,7 +51,7 @@ for pattern in patterns:
 	solved += diff
 	
 	i = 6
-	# Find the number 6, because 0 and 9 are subsets of 1
+	# Find the number 6, because 1 is a subset of 0 and 9
 	while set(pattern[0]).issubset(set(pattern[i])):
 		i += 1
 	six = pattern[i]
