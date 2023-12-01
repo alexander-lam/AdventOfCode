@@ -1,12 +1,16 @@
-# Timer
-import time
 import re
+import time
+
+# Timer
 start = time.time()
 
 # Read input from file
 input = open('input1.txt', 'r').read().splitlines()
 
+# Initialize
 sum = 0
+
+# Process line by line
 for line in input:
     # Read first number in line
     for char in line:
@@ -24,6 +28,19 @@ print(sum)
 
 # Reinitialize
 sum = 0
+
+# Define dict for word nums
+mapping = {'one': 1,
+           'two': 2,
+           'three': 3,
+           'four': 4,
+           'five': 5,
+           'six': 6,
+           'seven': 7,
+           'eight': 8,
+           'nine': 9}
+
+# Process line by line
 for line in input:
     # Match first and last number
     matches = re.findall("one|two|three|four|five|six|seven|eight|nine|1|2|3|4|5|6|7|8|9", line)
@@ -33,46 +50,14 @@ for line in input:
     # Parse first number
     if firstMatch.isnumeric():
         sum += int(firstMatch)*10
-    elif firstMatch == 'one':
-        sum += 10
-    elif firstMatch == 'two':
-        sum += 20  
-    elif firstMatch == 'three':
-        sum += 30 
-    elif firstMatch == 'four':
-        sum += 40 
-    elif firstMatch == 'five':
-        sum += 50
-    elif firstMatch == 'six':
-        sum += 60
-    elif firstMatch == 'seven':
-        sum += 70
-    elif firstMatch == 'eight':
-        sum += 80
-    elif firstMatch == 'nine':
-        sum += 90  
+    else:
+        sum += mapping[firstMatch]*10
 
     # Parse last number
     if lastMatch.isnumeric():
         sum += int(lastMatch)
-    elif lastMatch == 'one':
-        sum += 1
-    elif lastMatch == 'two':
-        sum += 2  
-    elif lastMatch == 'three':
-        sum += 3 
-    elif lastMatch == 'four':
-        sum += 4 
-    elif lastMatch == 'five':
-        sum += 5
-    elif lastMatch == 'six':
-        sum += 6
-    elif lastMatch == 'seven':
-        sum += 7
-    elif lastMatch == 'eight':
-        sum += 8
-    elif lastMatch == 'nine':
-        sum += 9     
+    else:
+        sum += mapping[lastMatch]    
     
 print(sum)
 
